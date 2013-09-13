@@ -107,7 +107,7 @@ $page_list_template = <<<EOT
 <li>{PAGE_TITLE}</li>
 <li>{DATE}</li>
 <li>{CAT}</li>
-<li><a href="$url/cms/?page=pages&amp;action=update&amp;id={ID}">Update</a> - <a href="$url/cms/?page=pages&amp;action=delete&amp;id={ID}">Delete</a></li>
+<li><a href="$url/pages/{SLUG}">View</a> - <a href="$url/cms/?page=pages&amp;action=update&amp;id={ID}">Update</a> - <a href="$url/cms/?page=pages&amp;action=delete&amp;id={ID}">Delete</a></li>
 </ul>
 <div class="clear"></div>
 EOT;

@@ -274,12 +274,12 @@ else {
 		case 'pages':
 			switch($action) {
 				default:
-					$pages = $database->get_data("SELECT p.title, p.id, FROM_UNIXTIME(p.timestamp, '%D %M %Y') AS date, c.name FROM pages AS p JOIN categories AS c ON c.id = p.cat_id");
+					$pages = $database->get_data("SELECT p.title, p.id, p.slug, FROM_UNIXTIME(p.timestamp, '%D %M %Y') AS date, c.name FROM pages AS p JOIN categories AS c ON c.id = p.cat_id");
 					echo '<h1>Pages</h1>';
 					echo '<p><a href="' . URL . 'cms/?page=pages&amp;action=add">Add a new page</a></p>';
 					foreach($pages as $page) {
 						$theme->html_small($page_list_template);
-						$theme->replace_tokens(array('PAGE_TITLE' => $page['title'], 'DATE' => $page['date'], 'ID' => $page['id'], 'CAT' => $page['name']));
+						$theme->replace_tokens(array('PAGE_TITLE' => $page['title'], 'DATE' => $page['date'], 'ID' => $page['id'], 'CAT' => $page['name'], 'SLUG' => $page['slug']));
 						echo $theme->display();	
 					}
 					break;
